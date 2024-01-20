@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pcmd="clr-namespace:PluginsCommon.Commands"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:conv="clr-namespace:PluginsCommon.Converters"
              mc:Ignorable="d"
              d:DesignHeight="700" d:DesignWidth="600">
     <Grid>
@@ -113,6 +114,25 @@
                         </Image.Style>
                     </Image>
                 </StackPanel>
+
+                <CheckBox IsChecked="{Binding Settings.GeneralSplashSettings.Async}"
+                          Content="{DynamicResource LOCSplashScreen_SettingCBasync}" Margin="0,10,0,0" />
+                
+                <Label Margin="0,10,0,0" Content="Client Settings"/>
+                <ListBox Margin="0,10,0,0" ItemsSource="{Binding Settings.ClientSettings}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="{Binding ClientName}"/>
+                                <ComboBox SelectedIndex="{Binding ClientAsyncBehavior, Converter={conv:EnumConverter}}">
+                                    <ComboBoxItem Content="Never"/>
+                                    <ComboBoxItem Content="Always"/>
+                                    <ComboBoxItem Content="First Time"/>
+                                </ComboBox>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </StackPanel>
         </ScrollViewer>
     </Grid>

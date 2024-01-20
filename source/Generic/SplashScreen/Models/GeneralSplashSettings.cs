@@ -50,6 +50,11 @@ namespace SplashScreen.Models
         string CustomBackgroundImage { get; set; }
 
         /// <summary>
+        /// Gets or sets if Playnite should wait for splashscreen.
+        /// </summary>
+        bool Async { get; set; }
+
+        /// <summary>
         /// Gets or sets logo display horizontal alignment.
         /// </summary>
         HorizontalAlignment LogoHorizontalAlignment { get; set; }
@@ -79,6 +84,7 @@ namespace SplashScreen.Models
         public bool LogoUseIconAsLogo { get; set; } = false;
         public bool EnableCustomBackgroundImage { get; set; } = false;
         public bool EnableLogoDisplayOnCustomBackground { get; set; } = true;
+        public bool Async { get; set; } = false;
         public string CustomBackgroundImage { get; set; } = null;
         public HorizontalAlignment LogoHorizontalAlignment { get; set; } = HorizontalAlignment.Left;
         public VerticalAlignment LogoVerticalAlignment { get; set; } = VerticalAlignment.Bottom;

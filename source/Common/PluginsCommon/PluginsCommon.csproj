@@ -34,6 +34,7 @@
     <Reference Include="Playnite.SDK, Version=6.2.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\PlayniteSDK.6.2.2\lib\net462\Playnite.SDK.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -51,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BindingTools.cs" />
+    <Compile Include="Converters\EnumConverter.cs" />
     <Compile Include="Converters\IEnumerableHasItemsToVisibilityConverter.cs" />
     <Compile Include="Converters\InvertedVisibilityConverter.cs" />
     <Compile Include="Converters\NumericConverters.cs" />
@@ -64,6 +66,8 @@
     <Compile Include="Native\Processthreadsapi.cs" />
     <Compile Include="Native\WinBase.cs" />
     <Compile Include="Paths.cs" />
+    <Compile Include="PluginId.cs" />
+    <Compile Include="PluginUri.cs" />
     <Compile Include="ProcessStarter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />

@@ -20,6 +20,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Threading;
+using System.Diagnostics;
 
 namespace ExtraMetadataLoader
 {
@@ -47,6 +48,7 @@ namespace ExtraMetadataLoader
         private Uri microVideoPath;
         private Uri trailerVideoPath;
         private bool multipleSourcesAvailable = false;
+        private readonly bool muteSoundsPlugin;
         private Game currentGame;
 
         private DesktopView activeViewAtCreation;
@@ -78,6 +80,17 @@ namespace ExtraMetadataLoader
             set
             {
                 isSoundEnabled = value;
+                if (muteSoundsPlugin)
+                {
+                    if (value)
+                    {
+                        ProcessStarter.StartUrl(App.SoundsUriPause);
+                    }
+                    else
+                    {
+                        ProcessStarter.StartUrl(App.SoundsUriPlay);
+                    }
+                }
                 OnPropertyChanged();
             }
         }

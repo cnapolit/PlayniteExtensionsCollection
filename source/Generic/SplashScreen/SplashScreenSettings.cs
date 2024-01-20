@@ -12,6 +12,12 @@ using System.Windows;
 
 namespace SplashScreen
 {
+    public enum ClientAsyncBehavior
+    {
+        Never,
+        Always,
+        First
+    }
     public class SplashScreenSettings : ObservableObject
     {
         [DontSerialize]
@@ -42,8 +48,15 @@ namespace SplashScreen
             { VerticalAlignment.Center, ResourceProvider.GetString("LOCSplashScreen_SettingVerticalAlignmentCenterLabel") },
             { VerticalAlignment.Bottom, ResourceProvider.GetString("LOCSplashScreen_SettingVerticalAlignmentBottomLabel") },
         };
+        public List<ClientSettings> ClientSettings { get; set; } = new List<ClientSettings>();
 
         public GeneralSplashSettings GeneralSplashSettings { get; set; } = new GeneralSplashSettings();
+    }
+
+    public class ClientSettings
+    {
+        public string ClientName { get; set; }
+        public ClientAsyncBehavior ClientAsyncBehavior { get; set; }
     }
 
     public class SplashScreenSettingsViewModel : ObservableObject, ISettings
@@ -74,7 +87,7 @@ namespace SplashScreen
             // Load saved settings.
             var savedSettings = plugin.LoadPluginSettings<SplashScreenSettings>();
 
-            // LoadPluginSettings returns null if not saved data is available.
+            // LoadPluginSettings returns null if there is no saved data available.
             if (savedSettings != null)
             {
                 Settings = savedSettings;

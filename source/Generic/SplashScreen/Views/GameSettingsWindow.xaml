@@ -122,6 +122,9 @@
                             </Image>
                         </StackPanel>
                     </StackPanel>
+
+                    <CheckBox IsChecked="{Binding Settings.GeneralSplashSettings.Async}"
+                          Content="{DynamicResource LOCSplashScreen_SettingCBasync}" Margin="0,10,0,0" />
                 </StackPanel>
             </ScrollViewer>
         </DockPanel>

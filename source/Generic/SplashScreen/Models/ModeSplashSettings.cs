@@ -41,5 +41,6 @@ namespace SplashScreen.Models
         public bool EnableVideos { get; set; } = true;
         public bool EnableMicroTrailerVideos { get; set; } = false;
         public bool CloseSplashscreenAutomatic { get; set; } = true;
+        public bool TriggerSounds { get; set; } = false;
     }
 }
